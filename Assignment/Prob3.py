@@ -1,11 +1,15 @@
 import Funcs as f 
 
-Arr=[3,4,7,-1,0,1,23,-2,-5]
-
+fil=open('data.txt',mode='r')
+lines=fil.read()
+Arr=[]
+arr1=lines.split(',')
+for i in arr1:
+    Arr.append(int(i))
 start=input('Enter Starting index : ')
 starting=int(start)
 end=input('Enter Ending index : ')
 ending=int(end)
 
-integer=f.Minimum(Arr,starting,ending +1) 
+integer=f.Minimum(Arr,starting,ending) 
 print(integer)

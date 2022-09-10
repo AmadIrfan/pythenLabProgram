@@ -1,5 +1,8 @@
- A=[
-    1,2,3,
-    3,4,5,
-    6,7,8
-    ]
+import Funcs as f
+
+num=input('Enter a Number : ' )
+
+number= f.SumIterative(int(num))
+print ('Iterative Sum',number)
+num=f.SumRecursive(number)
+print('Recursive Sum',num)

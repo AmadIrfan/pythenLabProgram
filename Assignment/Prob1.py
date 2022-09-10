@@ -8,7 +8,7 @@ for a in arr1:
     Arr.append(a)
     
 
-x=input('Enter the Number you want to enter : ')
+x=input('Enter the Number you want to Search : ')
 array=f.SearchA(Arr, x)
 ind=0
 for i in array:
