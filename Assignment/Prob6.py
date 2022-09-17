@@ -1,8 +1,9 @@
-import Funcs as f
+from funcs import SumIterative 
+from funcs import SumRecursive 
 
 num=input('Enter a Number : ' )
 
-number= f.SumIterative(int(num))
+number= SumIterative(int(num))
 print ('Iterative Sum',number)
-num=f.SumRecursive(number)
+num=SumRecursive(number)
 print('Recursive Sum',num)
