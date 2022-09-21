@@ -1,4 +1,5 @@
 # contain an error in calling bubblesort
+
 import funcs as f
 import time
 
@@ -47,7 +48,7 @@ for n in array:
     selectionTime= selectionEndTime - selectionStartTime
     
     array=oldArray
-
+    
     bubbleStartTime=time.time()
     f.BubbleSort(array,0,end)
     bubbleEndTime=time.time()
@@ -55,4 +56,3 @@ for n in array:
     
     
     file1.write('{0} , {1} , {2} , {3} , {4} , {5} \n'.format(n,insertionTime,mergeTime,hybridmergeTime,selectionTime,bubbleTime))
-    

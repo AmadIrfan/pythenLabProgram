@@ -9,20 +9,16 @@ def RandomArray(size):
     return array1   
 
 def BubbleSort(array,start,end):
-    print("Amad 1")
     j=len(array)
     sorted1=False
     while ((j > 1) and (not(sorted1))):
-        print("Amad")
         sorted1=True
         for i in range(start,end):
             if(array[i-1] > array[i]):
-                print("Amad 3")
                 temp=array[i-1]
                 array[i-1]=array[i]
                 array[i]=temp
                 sorted1=False
-        print("Amad2")
     return array
 
 def SelectionSort(array ,start,end):
@@ -64,7 +60,7 @@ def Merge(Array,p,q,r):
     j= 1
     
     for k in range(p,r+1):
-        if(Left[i] <= Right[j]):
+        if(Left[i] < Right[j]):
             Array[k] = Left[i]
             i = i+1
         else:

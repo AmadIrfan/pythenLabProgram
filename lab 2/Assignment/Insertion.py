@@ -1,14 +1,13 @@
 import time
 import funcs as f
 
-array=f.RandomArray(30000)
+array=f.RandomArray(100000)
 
 start=input('Enter Starting index ')
 end=input('Enter ending index ')
 
-
 startTime=time.time()
-arr=f.InsertionSort(array, start, end)
+arr=f.InsertionSort(array, int(start), int(end))
 endTime=time.time()
 totalTime=endTime-startTime
 

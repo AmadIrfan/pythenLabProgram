@@ -1,12 +1,12 @@
 import time
 import funcs as f
 
+arr=f.RandomArray(40000)
+#  int(input("Enter starting index "))
+# int(input("Enter ending index "))
 
-start = int(input("Enter starting index "))
-end = int(input("Enter ending index "))
-
-
-arr=f.RandomArray(30000)
+start =0
+end = len(arr)
 startTime=time.time()
 
 #Time Starts for requird to calculate required time
@@ -18,7 +18,7 @@ endTime=time.time()
 #total time
 totalTime=endTime-startTime
 
-print(arr1)
+# print(arr1)
 
 file=open('SortedBubbleSort.csv',mode='w')
 for i in arr1:

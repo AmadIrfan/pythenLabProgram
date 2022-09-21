@@ -1,11 +1,12 @@
 import time
-
 import funcs as f
 
-arr=f.RandomArray(30000)
+arr=f.RandomArray(100)
 
-se=input('Enter starting Index ')
-en=input('Enter ending Index ')
+se=0
+# input('Enter starting Index ')
+en=len(arr)
+# input('Enter ending Index ')
 
 #Time Starts for requird to calculate required time
 startTime=time.time()
