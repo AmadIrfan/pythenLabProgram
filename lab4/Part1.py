@@ -2,12 +2,13 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-
 def collectSameData(list1,list2):
     dateList=[]
     sumList=[]
-    for i in range(len(list1)):
+    i=0
+    while i != len(list1):
         if(list1[i]==0):
+            i+=1
             continue
         else:
             date=list1[i]
@@ -19,10 +20,11 @@ def collectSameData(list1,list2):
                     list1[j]=0
             dateList.append(date)
             sumList.append(sum)
+            i+=1
     return  dateList,sumList
 
 
-
+print('Question 1 part 1')
 df=pd.read_csv('dailySteps_merged.csv')
 list1=df['ActivityDay'].values.tolist()
 list2=df['StepTotal'].values.tolist()
@@ -35,7 +37,7 @@ plt.xticks(rotation=90)
 plt.show()
 
 
-
+print('Question 1 part 2 ')
 df=pd.read_csv('dailyActivity_merged.csv')
 list3=df['ActivityDate'].values.tolist()
 list4=df['TotalDistance'].values.tolist()
@@ -50,6 +52,8 @@ plt.show()
 
 
 
+print('Question 1 part 3')
+
 df=pd.read_csv('sleepDay_merged.csv')
 list1=df['SleepDay'].values.tolist()
 list2=df["TotalTimeInBed"].values.tolist()
@@ -61,23 +65,17 @@ plt.xticks(rotation=90)
 plt.show()
 
 
+print('Question 1 part 4 ')
 
 df=pd.read_csv('hourlySteps_merged.csv')
 list1=df['ActivityHour'].values.tolist()
 list2=df["StepTotal"].values.tolist()
 hoursList,stepsList=collectSameData(list1, list2)
-
-df=pd.DataFrame(hoursList)
-df1=pd.DataFrame(stepsList)
-
-
-print(df)
-print(df1)
-
-
-plt.pie(stepsList)
-plt.ylabel(' total time in bed (s)')
-plt.xlabel('Date')
-plt.xticks(rotation=90)
+lhours=[]
+lsteps=[]
+for  i in range(0,24):
+    lhours.append(hoursList[i])
+    lsteps.append(stepList[i])
+plt.pie(lsteps,labels=lhours)
 plt.show()
 
