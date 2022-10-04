@@ -131,3 +131,4 @@ def SumRecursive(number):
     
     else:
         return SumRecursive(number//10) + number%10
+        
