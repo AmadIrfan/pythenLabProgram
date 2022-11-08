@@ -1,7 +1,5 @@
-
 #include <iostream>
 #include <conio.h>
-
 using namespace std;
 
 class Node
@@ -21,6 +19,10 @@ private:
     Node *Head;
 
 public:
+    bool isEmpty()
+    {
+        return Head == NULL;
+    }
     void print()
     {
         Node *p = this->Head;
@@ -29,30 +31,31 @@ public:
             cout << p->data << endl;
         }
     }
-    Node *search(int key)
+    Node *search(int x)
     {
         Node *p = Head;
         while (p != NULL)
         {
-            if (p->data == key)
+            if (p->data == x)
             {
                 return p;
             }
         }
         return NULL;
     }
-    bool HeadInsert(int key)
+    bool insertAtHead(int x)
     {
-        Node *N = new Node(key);
+        Node *N = new Node(x);
         if (Head != NULL)
         {
             N->next = Head;
         }
         return true;
     }
-    void insertTail(int key)
+
+    void insertTail(int x)
     {
-        Node *N = new Node(key);
+        Node *N = new Node(x);
         Node *p = Head;
         while (p->next == NULL)
         {
@@ -60,13 +63,13 @@ public:
         }
         p->next = N;
     }
-    void Delete(int key)
+    void Delete(int x)
     {
         Node *d = Head;
         Node *p = Head;
         while (d->next->next != NULL)
         {
-            if (d->data == key)
+            if (d->data == x)
             {
                 p = d->next;
                 d->next = p;
@@ -79,14 +82,40 @@ public:
         }
     }
 
-    void Update(int key)
+    Node *insertNode(int index, int x)
+    {
+        int index1 = 0;
+        Node *d = Head;
+        Node *p = Head;
+        Node *newAdd = new Node(x);
+        while (d->next != NULL)
+        {
+            index1++;
+            if (index == index1)
+            {
+                p = d->next;
+                d->next = newAdd;
+                newAdd->next = p;
+            }
+        }
+        if (d->data == x)
+        {
+            p = d->next;
+            d->next = p;
+        }
+        else
+        {
+            d = d->next;
+        }
+    }
+    void Update(int x)
     {
         Node *d = Head;
         while (d->next != NULL)
         {
-            if (d->data == key)
+            if (d->data == x)
             {
-                d->data = key;
+                d->data = x;
                 cout << "Found ";
             }
             else
@@ -95,7 +124,11 @@ public:
             }
         }
     }
-
+    Node *reverseList() {}
+    Node *sortList(Node *list) {}
+    Node *removeDuplicates(Node *list) {}
+    Node *mergeLists(Node *list1, Node *list2) {}
+    Node *interestLists(Node *list1, Node *list2) {}
     int length()
     {
         int index = 0;
@@ -110,10 +143,10 @@ public:
 
 void main()
 {
-    Node N(12);
-    LinkedList lk;
-    lk.HeadInsert(12);
-    lk.Delete(12);
-    lk.Update(13);
-    lk.length();
+    LinkedList link;
+    link.insertAtHead(4);
+    link.insertNode(2, 2);
+    int len = link.length();
+    cout << len;
+    link.Update(2);
 }
