@@ -1,1 +1,1 @@
-while lengthArr > 0 :
+a<b
