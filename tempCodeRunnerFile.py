@@ -1,0 +1,1 @@
+while lengthArr > 0 :

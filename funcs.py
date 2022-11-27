@@ -1,86 +1,134 @@
-# random imported for generate random numbers
-import random
+ 
 
-def RandomArray(size):
+
+def SearchA(Arr,x):
+    indexArray=[]
+    print("index : ",end=' ')
+    index=0
+    for item in Arr:
+        if (item==x):
+            indexArray.append(index)
+        index+=1
+    return indexArray
+
+
+def SearchB():
+    print()
+
+def Minimum(Arr,starting,ending):
+    index=0
+    ending=ending+1
+    minim=0
+    for i in range(starting,ending):
+        if Arr[i] <= minim:
+            minim=Arr[i]
+            index=i
+    integer=index        
+    return integer
+
+
+def StringReverse(str, starting,ending):
+    newLine=str[starting: ending]
+    string=newLine[::-1]
+    return string
+    
+def RowWiseSum(Met):
+    rowSum=[]
+    for i in range(0,len(Met)):
+        sum=0
+        for j in range(3):
+            sum=Met[i][j]+sum
+        rowSum.append(sum)
+    return rowSum
+
+
+def Sort4(Arr):
+    lengthArr=len(Arr)
+    array=[]
+    while lengthArr > 0 :
+        minimum=Arr[0]
+        for i in Arr:
+            if (i < minimum):
+                minimum=i
+        array.append(minimum)
+        Arr.remove(minimum)
+        lengthArr=len(Arr)
+    return array
+
+def ColumnWiseSum(Met):
+    colSum=[]
+    for i in range(0,len(Met)):
+        sum=0
+        for j in range(3):
+            sum=Met[j][i]+sum
+        colSum.append(sum)
+    return colSum
+
+def PalindromRecursive(str):
+ 
+    lengthStr=len(str)
+    S=str[0]
+    E=str[-1]
+    if(lengthStr<=1):
+        return True
+    else :
+        if(S==E):
+            word=str[1:-1]
+            return PalindromRecursive(word)
+        else :
+            return False; 
+
+
+
+def SortedMerge(Arr1,Arr2):    
     array1=[]
-    for i in range(0,size):
-        randNum=random.randint(0,size)
-        array1.append(randNum)
-    return array1   
-
-def BubbleSort(array,start,end):
-    j=len(array)
-    sorted1=False
-    while ((j > 1) and (not(sorted1))):
-        sorted1=True
-        for i in range(start,end):
-            if(array[i-1] > array[i]):
-                temp=array[i-1]
-                array[i-1]=array[i]
-                array[i]=temp
-                sorted1=False
+    array=[]
+    array1=Arr1+Arr2
+    for i in range(len(array1)):
+        minimum=array1[0]
+        for x in array1:
+            if(x<minimum):
+                minimum=x
+        array.append(minimum)
+        array1.remove(minimum)
     return array
 
-def SelectionSort(array ,start,end):
-    for i in range(start,end):
-        for j in range(0,len(array)-i-1):
-            if(array[j]> array[j+1]):
-                temp =array[j]
-                array[j]=array[j+1]
-                array[j+1]=temp
+def SumIterative(number):
+    integer=0
+    while number != 0:
+        num=number%10
+        integer=integer+num
+        number=number//10
+    return integer
+
+def Sort10(Arr):
+    array=[]
+    nArr=[]
+    pArr=[]
+    index=0
+    const=0
+    for i in Arr:
+        if i < const:
+            nArr.append(i)
+        if i>=const:
+            pArr.append(i)
+    nArr.sort()
+    pArr.sort()
+    
+    for i in pArr:
+        array.append(i)
+    for j in nArr:
+        array.insert(index,j)
+        index += 2
     return array
 
 
-def InsertionSort(array,start,end):
-    for i in range(start,end):
-        key=array[i]
-        j=i-1
-        while j>=0 and key < array[j]:
-            array[j+1]=array[j]
-            j=j-1
-        array[j+1]=key
-    return array
-
-def Merge(Array,p,q,r):
-    n1 = q-p+1
-    n2 = r-q
-    Left = []
-    Right = []
-
-    for i in range(n1+1):
-        Left.append(Array[p+i-1])
+def SumRecursive(number):
+    integer=0
+    if number==0:
+        integer=0
+        return integer
     
-    for j in range(n2+1):
-        Right.append(Array[q+j])
-    
-    Left.append(100000000)
-    Right.append(100000000) 
-    
-    i = 1
-    j= 1
-    
-    for k in range(p,r+1):
-        if(Left[i] < Right[j]):
-            Array[k] = Left[i]
-            i = i+1
-        else:
-            Array[k] = Right[j]
-            j= j+1
-    return Array
-
-
-def MergeSort(array,start,end):
-    if (start < end):
-        q=int((start+end)/2)
-        MergeSort(array,start,q)
-        MergeSort(array,q+1,end)
-        Merge(array,start,q,end)
-
-def HybridMergeSort(array,start,end):
-    if (start < end):
-        q=int((start+end)/2)
-        MergeSort(array,start,q)
-        MergeSort(array,q+1,end)
-        Merge(array,start,q,end)
     else:
-        InsertionSort(array,start,end)
+        return SumRecursive(number//10) + number%10
+        
